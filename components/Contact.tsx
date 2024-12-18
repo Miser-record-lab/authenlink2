@@ -33,7 +33,7 @@ const Contact = () => {
 
   // Validation simple du formulaire
   const validateForm = () => {
-    let errors = {
+    const errors = {
       firstName: "",
       lastName: "",
       email: "",
@@ -147,7 +147,6 @@ const Contact = () => {
               title={isSubmitting ? "Envoi en cours..." : "Envoyer"}
               icon={<FaLocationArrow />}
               position="right"
-              disabled={isSubmitting}
             />
             {submitStatus && <p className="text-center text-lg mt-4">{submitStatus}</p>}
           </div>

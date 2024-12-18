@@ -1,3 +1,4 @@
+import { FaCalendar } from "react-icons/fa";
 import MagicButton from "./ui/MagicButton";
 
 const Footer = () => {
@@ -18,6 +19,8 @@ const Footer = () => {
         <a href="mailto:contact@jsmastery.pro">
           <MagicButton
             title="Prendre rendez-vous"
+            icon={<FaCalendar />}  // Icône ajoutée
+            position="right" 
           />
         </a>
       </div>

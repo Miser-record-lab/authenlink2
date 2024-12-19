@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { FaComment } from "react-icons/fa"; // Icône pour le bouton de chat
+import Image from "next/image";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([
@@ -69,7 +70,7 @@ const Chatbot = () => {
           {/* Header avec logo et texte "fermer" */}
           <div className="flex items-center justify-between bg-black-100 p-3 rounded-t-lg border border-b-white/[0.2]">
             <div className="flex items-center space-x-2">
-              <img src="/authenlink.png" alt="Logo" className="w10 h-10" />
+              <Image src="/authenlink.png" alt="Logo" className="w10 h-10" />
               <span className="font-semibold text-white">AuthenLink</span>
             </div>
             <button

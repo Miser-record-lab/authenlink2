@@ -70,7 +70,16 @@ const Chatbot = () => {
           {/* Header avec logo et texte "fermer" */}
           <div className="flex items-center justify-between bg-black-100 p-3 rounded-t-lg border border-b-white/[0.2]">
             <div className="flex items-center space-x-2">
-              <Image src="/authenlink.png" alt="Logo" className="w10 h-10" />
+              <div>
+              <Image 
+                src="/authenlink.png"  // Remplace par l'image du workflow N8n
+                alt="logo"
+                width={50}
+                height={50}
+                className=""
+                />
+              </div>
+              
               <span className="font-semibold text-white">AuthenLink</span>
             </div>
             <button

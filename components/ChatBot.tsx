@@ -117,7 +117,7 @@ const Chatbot = () => {
           <div className="flex items-center p-2 ">
             <input
               type="text"
-              className="flex-1 p-2 rounded-l-lg border border-white/[0.2] bg-black-700 text-white focus:outline-none"
+              className="flex-1 p-2 rounded-l-lg border border-white/[0.2] bg-white-400 text-black-100 focus:outline-none"
               placeholder="Tapez votre message..."
               value={input}
               onChange={(e) => setInput(e.target.value)}

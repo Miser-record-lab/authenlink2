@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';  // Importation des composants de toast
+import 'react-toastify/dist/ReactToastify.css'; // Importation des styles par défaut
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +22,6 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<string>("");
 
   // Fonction de gestion des changements dans les champs de formulaire
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -55,7 +56,6 @@ const Contact = () => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
-      setSubmitStatus("Envoi en cours...");
 
       try {
         const response = await fetch("https://n8n.authenlink.com/webhook/boite-de-reception", {
@@ -72,15 +72,16 @@ const Contact = () => {
           }),
         });
 
+        console.log('Réponse de l\'API:', response);
         if (response.ok) {
-          setSubmitStatus("Formulaire envoyé avec succès !");
           setFormData({ firstName: "", lastName: "", email: "", message: "" }); // Réinitialiser les champs
+          toast.success("Formulaire envoyé avec succès !");  // Affichage du toast de succès
         } else {
-          setSubmitStatus("Erreur lors de l'envoi. Essayez à nouveau.");
+          toast.error("Erreur lors de l'envoi. Essayez à nouveau.");  // Affichage du toast d'erreur
         }
       } catch (error) {
-        setSubmitStatus("Erreur lors de l'envoi. Essayez à nouveau.");
         console.error("Erreur:", error);
+        toast.error("Erreur lors de l'envoi. Essayez à nouveau.");  // Affichage du toast d'erreur
       }
 
       setIsSubmitting(false);
@@ -148,10 +149,23 @@ const Contact = () => {
               icon={<FaLocationArrow />}
               position="right"
             />
-            {submitStatus && <p className="text-center text-lg mt-4">{submitStatus}</p>}
           </div>
         </form>
       </div>
+
+      {/* ToastContainer pour afficher les toasts */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </section>
   );
 };

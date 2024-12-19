@@ -21,7 +21,9 @@
     "next-themes": "^0.4.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-dots-loader": "^1.1.4",
     "react-icons": "^5.4.0",
+    "react-toastify": "^11.0.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.171.0"
